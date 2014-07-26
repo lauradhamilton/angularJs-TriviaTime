@@ -7,7 +7,6 @@ triviaServices.service('FirebaseService', function($firebase, FIREBASE_URL) {
     return $firebase(new Firebase(FIREBASE_URL + '/' + questionId));
   };
   this.getAllQuestions = function() {
-  this.getAllQuestions = function() {
     return $firebase(new Firebase(FIREBASE_URL));
   };
 });
