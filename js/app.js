@@ -36,7 +36,19 @@ triviaApp.controller('QuestionNewCtrl', ['$scope', '$firebase', '$location', fun
   };
 }]);
 
-triviaApp.controller('QuestionDetailCtrl', ['$scope', '$firebase', '$routeParams', function($scope, $firebase, $routeParams) {
+triviaApp.controller('QuestionDetailCtrl', ['$scope', '$firebase', '$routeParams', '$location', function($scope, $firebase, $routeParams, $location) {
   var firebaseUrl = "https://triviaapp.firebaseio.com/questions/" + $routeParams.questionId;
   $scope.question = $firebase(new Firebase(firebaseUrl));
+
+  $scope.persistQuestion = function(question) {
+    $scope.question.$update({
+      question: question.question,
+      option1: question.option1,
+      option2: question.option2,
+      option3: question.option3,
+      answer: question.answer
+    }).then(function(ref) {
+      $location.url('/questions');
+    });
+  };
 }]);
