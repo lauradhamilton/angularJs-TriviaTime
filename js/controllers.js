@@ -1,6 +1,6 @@
 var triviaControllers = angular.module('triviaControllers', ['firebase']);
 
-triviaApp.controller('QuestionListCtrl', ['$scope', '$firebase', function($scope, $firebase) {
+triviaControllers.controller('QuestionListCtrl', ['$scope', '$firebase', function($scope, $firebase) {
   var firebaseUrl = "https://triviaapp.firebaseio.com/questions";
   $scope.questions = $firebase(new Firebase(firebaseUrl));
 
@@ -14,7 +14,7 @@ triviaApp.controller('QuestionListCtrl', ['$scope', '$firebase', function($scope
   };
 }]);
 
-triviaApp.controller('QuestionNewCtrl', ['$scope', '$firebase', '$location', function($scope, $firebase, $location) {
+triviaControllers.controller('QuestionNewCtrl', ['$scope', '$firebase', '$location', function($scope, $firebase, $location) {
   $scope.question = {}
 
   $scope.persistQuestion = function(question) {
@@ -26,7 +26,7 @@ triviaApp.controller('QuestionNewCtrl', ['$scope', '$firebase', '$location', fun
   };
 }]);
 
-triviaApp.controller('QuestionDetailCtrl', ['$scope', '$firebase', '$routeParams', '$location', function($scope, $firebase, $routeParams, $location) {
+triviaControllers.controller('QuestionDetailCtrl', ['$scope', '$firebase', '$routeParams', '$location', function($scope, $firebase, $routeParams, $location) {
   var firebaseUrl = "https://triviaapp.firebaseio.com/questions/" + $routeParams.questionId;
   $scope.question = $firebase(new Firebase(firebaseUrl));
 
