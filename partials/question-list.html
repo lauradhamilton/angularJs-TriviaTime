@@ -1,6 +1,9 @@
 <div>
   <ul class="list-group">
     <li ng-repeat="question in questions | orderByPriority" class="list-group-item">
+    <div class="pull-right">
+      <a href="#/questions/{{question.$id}}">Edit</a>
+    </div>
     <div>
       <h4>{{question.question}}</h4>
       <div><input type="radio" name="{{question.$id}}-answer" value="1" /> {{question.option1}}</div>

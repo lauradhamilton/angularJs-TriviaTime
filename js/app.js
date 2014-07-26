@@ -10,6 +10,10 @@ triviaApp.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'partials/question-form.html',
       controller: 'QuestionNewCtrl'
     }).
+    when('/questions/:questionId', {
+      templateUrl: 'partials/question-form.html',
+      controller: 'QuestionDetailCtrl'
+    }).
     otherwise({
       redirectTo: '/questions'
     });
@@ -30,4 +34,9 @@ triviaApp.controller('QuestionNewCtrl', ['$scope', '$firebase', '$location', fun
       $location.url('questions');
     });
   };
+}]);
+
+triviaApp.controller('QuestionDetailCtrl', ['$scope', '$firebase', '$routeParams', function($scope, $firebase, $routeParams) {
+  var firebaseUrl = "https://triviaapp.firebaseio.com/questions/" + $routeParams.questionId;
+  $scope.question = $firebase(new Firebase(firebaseUrl));
 }]);
