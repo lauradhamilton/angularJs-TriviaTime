@@ -26,6 +26,11 @@ triviaApp.controller('QuestionListCtrl', ['$scope', '$firebase', function($scope
   $scope.deleteQuestion = function(questionId) {
     $scope.questions.$remove(questionId);
   };
+
+  $scope.answerQuestion = function(question, selectedAnswer) {
+    question.answered = true;
+    question.correct = (question.answer == selectedAnswer);
+  };
 }]);
 
 triviaApp.controller('QuestionNewCtrl', ['$scope', '$firebase', '$location', function($scope, $firebase, $location) {
