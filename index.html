@@ -10,9 +10,17 @@
       <p>
         Trivia Time by Laura Hamilton!
       </p>
-      <p>
-        Enter your name: <input type="text" ng-model="userName"/>
-        <h3>Welcome, {{userName}}!</h3>
-      </p>
+      <div ng-controller="QuestionListCtrl">
+        <ul>
+          <li ng-repeat="question in questions">
+            <div>
+              <h4>{{question.question}}</h4>
+              <div><input type="radio" name="{{question.id}}-answer" value="1" /> {{question.option1}}</div>
+              <div><input type="radio" name="{{question.id}}-answer" value="2" /> {{question.option2}}</div>
+              <div><input type="radio" name={{question.id}}-answer" valuve="3" /> {{question.option3}}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
   </body>
 </html>
