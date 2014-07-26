@@ -1,6 +1,6 @@
 <div>
   <ul class="list-group">
-    <li ng-repeat="question in questions | orderByPriority" class="list-group-item">
+    <li class="list-group-item" ng-repeat="question in questions | orderByPriority | filter:filterText" class="list-group-item">
     <div class="pull-right">
       <div>
         <i class="fa fa-smile-o fa-3x" ng-class="{active:question.answered && question.correct}"></i>
@@ -22,5 +22,6 @@
 </div>
 
 <div class="clearfix">
+  Filter questions by text: <input type="text" ng-model="filterText" />
   <a class="pull-right" href="#/questions/new"><span class="glyphicon glyphicon-plus"></span> Add new question</a>
 </div>
