@@ -1,7 +1,6 @@
-var triviaApp = angular.module('triviaApp', []);
+var triviaApp = angular.module('triviaApp', ['firebase']);
 
-triviaApp.controller('QuestionListCtrl', ['$scope', '$http', function($scope, $http) {
-  $http.get('data/questions.json').success(function(data) {
-    $scope.questions = data;
-  });
+triviaApp.controller('QuestionListCtrl', ['$scope', '$firebase', function($scope, $firebase) {
+  var firebaseUrl = "https://triviaapp.firebaseio.com/questions";
+  $scope.questions = $firebase(new Firebase(firebaseUrl));
 }]);
