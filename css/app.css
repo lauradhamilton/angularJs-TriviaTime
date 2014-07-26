@@ -1,3 +1,11 @@
 .container li {
   margin: 20px 0;
 }
+
+.ng-dirty.ng-valid {
+  border-color: limegreen;
+}
+
+.ng-dirty.ng-invalid {
+  border-color: red;
+}
