@@ -22,6 +22,10 @@ triviaApp.config(['$routeProvider', function($routeProvider) {
 triviaApp.controller('QuestionListCtrl', ['$scope', '$firebase', function($scope, $firebase) {
   var firebaseUrl = "https://triviaapp.firebaseio.com/questions";
   $scope.questions = $firebase(new Firebase(firebaseUrl));
+
+  $scope.deleteQuestion = function(questionId) {
+    $scope.questions.$remove(questionId);
+  };
 }]);
 
 triviaApp.controller('QuestionNewCtrl', ['$scope', '$firebase', '$location', function($scope, $firebase, $location) {

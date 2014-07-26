@@ -3,6 +3,7 @@
     <li ng-repeat="question in questions | orderByPriority" class="list-group-item">
     <div class="pull-right">
       <a href="#/questions/{{question.$id}}">Edit</a>
+      <a ng-click="deleteQuestion(question.$id)">Delete</a>
     </div>
     <div>
       <h4>{{question.question}}</h4>
