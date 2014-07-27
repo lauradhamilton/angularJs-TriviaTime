@@ -1,6 +1,6 @@
 <div>
   <ul class="list-group">
-    <li class="list-group-item" ng-repeat="question in questions | orderByPriority | filter:filterText" class="list-group-item">
+    <li class="list-group-item animate" ng-repeat="question in questions | orderByPriority | filter:filterText">
     <div class="pull-right">
       <div>
         <i class="fa fa-smile-o fa-3x" ng-class="{active:question.answered && question.correct}"></i>
